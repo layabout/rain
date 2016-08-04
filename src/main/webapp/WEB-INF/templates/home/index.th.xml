@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thlogic>
+    <attr sel="html" th:fragment="base(title,link,style,sub)">
+        <attr sel="links" th:replace="${link}?:_"/>
+        <attr sel="styles" th:replace="${style}?:_"/>
+        <attr sel="title" th:replace="${title}?:_"/>
+        <attr sel="#sub" th:replace="${sub}?:_"/>
+    </attr>
+</thlogic>

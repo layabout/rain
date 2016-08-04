@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:mbp="http://www.mobaopay.com">
+<head>
+    <title data-th-text="|#{view.base.title} - #{view.index.title}|">Base-Layout-Template</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<link href="../../../resources/build/css/base.css" rel="stylesheet" media="screen" data-th-href="@{resources/build/css/base.css}" />-->
+    <!-- import less -->
+    <!--<link rel="stylesheet/less" type="text/css" href="../../../resources/css/example.less" data-th-href="@{resources/css/example.less}" />-->
+    <!--<script src="../../../resources/js/lib/less.min.js" type="text/javascript" data-th-src="@{resources/js/lib/less.min.js}"></script>-->
+    <!-- jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        .container{
+            width: 1024px;
+            margin: 0 auto;
+        }
+        /* header module begin */
+        .header{
+            width: 100%;
+            height: 60px;
+            font-family: "Copperplate Gothic Light";
+            font-size: 16px;
+        }
+
+        .header ul li {
+            float: left;
+            margin: auto 20px;
+        }
+        .header li.active a{
+            color: indianred;
+            font-weight:bold;
+        }
+        /* header module end */
+
+        .content{
+            width: 100%;
+            height: 600px;
+            background: darkturquoise;
+        }
+        .menu{
+            width: 220px;
+            height: 100%;
+            background: darkslategrey;
+            font-family: "Copperplate Gothic Light";
+            font-size: 16px;
+            color: white;
+            float: left;
+            padding: 20px;
+        }
+        .main{
+            width: 724px;
+            height: 100%;
+            background: lightyellow;
+            float: right;
+            padding: 20px;
+        }
+        .headlines {
+            font-family: 华文行楷;
+            font-size: 22px;
+        }
+
+        table.gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+        }
+
+        .red{
+            background-color: red;
+            color: #fff;
+        }
+        .white{
+            background-color: #fff;
+        }
+        .green{
+            background-color: #B2DBA1;
+        }
+
+        .footer{
+            width: 100%;
+            height: 50px;
+            background: #eee;
+        }
+        .alert-danger{
+            color:red;
+            background-color: #F1DCDC;
+            border: 1px solid #DCA7A7;
+            color: #A94442;
+            font-size: 12px;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 8px;
+        }
+        .alert-success{
+            color: green;
+            background-color: #DBEED3;
+            border: 1px solid #B2DBA1;
+            color: #3C763D;
+            font-size: 12px;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" data-th-replace="fragments/header :: header">
+            <!-- ============================================================================ -->
+            <!-- This content is only used for static prototyping purposes (natural templates)-->
+            <!-- and is therefore entirely optional, as this markup fragment will be included -->
+            <!-- from "fragments/header.html" at runtime.                                     -->
+            <!-- ============================================================================ -->
+            <ul>
+                <li><a href="#">Home222</a></li>
+                <li><a href="#">Product</a></li>
+                <li>Service</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="menu">menu</div>
+            <div class="main" data-layout-fragment="main">
+               <mbp:headlines order="random" />
+               <h2 mbp:weekday th:text="${#execInfo.now.time}">Fri Jun 03 11:25:08 CST 2016</h2>
+               <th:block th:ref="flashMessage">
+                    <div id="alert">Alert</div>
+               </th:block>
+                <h2>Table Example</h2>
+                <table class="gridtable">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>PRICE</th>
+                            <th>IN STOCK</th>
+                        </tr>
+                    </thead>
+                    <tbody class="rows">
+                        <tr class="white">
+                            <td class="col1">data1</td>
+                            <td class="col2">data2</td>
+                            <td class="col3">data3</td>
+                        </tr>
+                        <tr>
+                            <td>data1</td>
+                            <td>data2</td>
+                            <td>data3</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <p>Sensitive Data Protection</p>
+               <p class="bankCardNo">card No.</p>
+            </div>
+        </div>
+        <div class="footer" data-th-replace="fragments/footer :: #footer-admin">
+            <!-- ============================================================================ -->
+            <!-- This content is only used for static prototyping purposes (natural templates)-->
+            <!-- and is therefore entirely optional, as this markup fragment will be included -->
+            <!-- from "fragments/header.html" at runtime.                                     -->
+            <!-- ============================================================================ -->
+            <div>
+                <p class="footer-text">&copy; Fake Footer</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

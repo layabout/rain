@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <!--/* 这是一个页面header组件 */-->
+
+    <div data-th-fragment="header" class="header">
+        <ul>
+            <li data-th-classappend="${nav == 'home' ? 'active' : ''}"><a href="#" data-th-href="@{/home}">Home</a></li>
+            <li data-th-classappend="${nav == 'products' ? 'active' : ''}"><a href="#" data-th-href="@{/products}">Products</a></li>
+            <li data-th-classappend="${nav == 'example' ? 'active' : ''}"><a href="#" data-th-href="@{/example}">Example</a></li>
+        </ul>
+    </div>
+</body>
+</html>

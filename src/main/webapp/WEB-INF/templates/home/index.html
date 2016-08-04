@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <th:block th:ref="links" />
+    <th:block th:ref="styles" />
+</head>
+<body>
+    <h2>Base Template <a href="sub1.html" th:href="@{/sub1}">sub page</a></h2>
+    <div id="desc">
+        This is main content.
+    </div>
+    <div id="sub">
+        Spring is coming!
+    </div>
+</body>
+</html>
