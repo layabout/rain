@@ -18,7 +18,6 @@ public class PropertiesTest extends BaseSpringTestRunner{
     @Test
     public void testReadProperties() {
         logger.info("find properties in wpms");
-//        logger.info("the property value is : {}", Constants.MERCHAT_SERVICE_URL);
-        assertEquals("http://merchant.mobaopay.tst", Constants.MERCHAT_SERVICE_URL);
+        assertEquals("S7BCD4fFVrX5IL9v", Constants.TOKEN);
     }
 }

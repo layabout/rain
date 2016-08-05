@@ -8,8 +8,7 @@ public class Constants extends ConfigurableConstants{
         init("config/wpms.properties");
     }
 
-    //商户中心地址
-    public final static String MERCHAT_SERVICE_URL = p.getProperty("merchant_service_url",
-            "http://merchant.mobaopay.dev");
+    //token
+    public final static String TOKEN = p.getProperty("token");
 
 }

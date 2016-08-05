@@ -3,8 +3,6 @@ package com.ruby.common.configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -42,10 +40,10 @@ public class ConfigurableConstants {
             if (in != null)
                 p.load(in);
 
-            String sys = (String) p.get("sys");
-            File f = new File(sys);
-            InputStream ins = new FileInputStream(f);
-            p.load(ins);
+//            String sys = (String) p.get("sys");
+//            File f = new File(sys);
+//            InputStream ins = new FileInputStream(f);
+//            p.load(ins);
         } catch (IOException e) {
             logger.error(e.getMessage());
         } finally {

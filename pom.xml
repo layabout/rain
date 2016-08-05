@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mobaopay</groupId>
-    <artifactId>mbp-portal</artifactId>
+    <groupId>com.ruby</groupId>
+    <artifactId>sugar</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>portal website</name>
-    <url>https://www.mobaopay.com</url>
+    <name>faye</name>
+    <url>https://www.ruby.com</url>
 
     <!-- 主依赖库version -->
     <properties>
@@ -162,7 +162,7 @@
     </dependencies>
 
     <build>
-        <finalName>portal</finalName>
+        <finalName>sugar</finalName>
         <plugins>
             <!-- maven-compiler-plugin -->
             <plugin>
