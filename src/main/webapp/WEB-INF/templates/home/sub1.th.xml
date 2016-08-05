@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<thlogic>
-    <attr sel="html" th:replace="home/index :: base(~{::title},~{::link},~{::style},~{::#summer})"/>
-</thlogic>

@@ -1,6 +1,6 @@
 package com.mobaopay.test.feature;
 
-import com.mobaopay.portal.Constants;
+import com.ruby.wechat.Constants;
 import com.mobaopay.test.BaseSpringTestRunner;
 import org.junit.Test;
 import org.slf4j.Logger;

@@ -25,7 +25,7 @@
     <mvc:annotation-driven/>
 
     <!-- Scan Components -->
-    <context:component-scan base-package="com.mobaopay.portal"/>
+    <context:component-scan base-package="com.ruby.wechat"/>
 
     <!-- **************************************************************** -->
     <!--  MESSAGE EXTERNALIZATION/INTERNATIONALIZATION                    -->
@@ -71,14 +71,7 @@
         <property name="useDecoupledLogic" value="true" />
     </bean>
 
-    <bean id="templateEngine"
-          class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="additionalDialects">
-            <set>
-                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
-                <bean class="com.mobaopay.portal.web.support.dialect.mbp.MbpDialect" />
-            </set>
-        </property>
+    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver" />
     </bean>
 
