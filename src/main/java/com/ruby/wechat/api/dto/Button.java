@@ -1,5 +1,7 @@
 package com.ruby.wechat.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
 /**
@@ -9,12 +11,15 @@ import java.util.List;
 public class Button {
 
     /**一级菜单数组，个数应为1~3个*/
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String button;
     /**
      * 二级菜单数组，个数应为1~5个
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<Button> sub_button;
     /**菜单的响应动作类型*/
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String type;
     /**菜单标题，不超过16个字节，子菜单不超过60个字节*/
     private String name;
@@ -22,16 +27,19 @@ public class Button {
      * click等点击类型必须
      * 菜单KEY值，用于消息接口推送，不超过128字节
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String key;
     /**
      * view类型必须
      * 网页链接，用户点击菜单可打开链接，不超过1024字节
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String url;
     /**
      * media_id类型和view_limited类型必须
      * 调用新增永久素材接口返回的合法media_id
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String media_id;
 
     public Button() {
