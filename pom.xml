@@ -17,9 +17,9 @@
         <junit.version>4.12</junit.version>
         <log4j2.version>2.3</log4j2.version>
         <spring.version>4.2.4.RELEASE</spring.version>
-        <spring.security.version>4.1.1.RELEASE</spring.security.version>
-        <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
-        <layout-dialect.version>2.0.0-SNAPSHOT</layout-dialect.version>
+        <spring.security.version>4.1.2.RELEASE</spring.security.version>
+        <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
         <httpclient.version>4.3.6</httpclient.version>
     </properties>
 
@@ -63,6 +63,42 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <!-- spring jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring transaction -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring aop -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring context support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <!-- spring security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -107,6 +143,33 @@
             </exclusions>
         </dependency>
 
+        <!-- hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.18</version>
+        </dependency>
+
+        <!-- mysql jdbc driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+
         <!-- logback -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -148,13 +211,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
-        </dependency>
-
-        <!-- hibernate-validator -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.2.2.Final</version>
         </dependency>
 
         <!-- google guava -->

@@ -60,6 +60,20 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- Druid Monitor Servlet-->
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+        <init-param>
+            <param-name>allow</param-name>
+            <param-value>192.168.31.81</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
     <!-- SpringContext Listener -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

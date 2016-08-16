@@ -4,16 +4,18 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
-    <http auto-config="true" >
+    <http>
         <intercept-url pattern="/login" access="permitAll" />
-        <intercept-url pattern="/" access="hasRole('USER')" />
-        <form-login login-page="/login" />
+        <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/**" access="hasRole('USER') or hasRole('ADMIN')" />
+        <form-login login-page="/login" default-target-url="/" always-use-default-target="true" />
     </http>
 
     <authentication-manager >
         <authentication-provider>
             <user-service>
                 <user name="bill"  password="abc123"  authorities="ROLE_USER" />
+                <user name="ruby"  password="admin888"  authorities="ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
     </authentication-manager>
