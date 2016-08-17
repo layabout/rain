@@ -2,13 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
     <!-- **************************************************************** -->
     <!--  RESOURCE FOLDERS CONFIGURATION                                  -->
@@ -25,7 +24,7 @@
     <mvc:annotation-driven/>
 
     <!-- Scan Components -->
-    <context:component-scan base-package="com.ruby.wechat"/>
+    <context:component-scan base-package="com.ruby"/>
 
     <!-- **************************************************************** -->
     <!--  MESSAGE EXTERNALIZATION/INTERNATIONALIZATION                    -->
@@ -48,6 +47,9 @@
             <property name="paramName" value="lang" />
         </bean>
     </mvc:interceptors>
+
+    <!-- Sets annotation-driven transactions -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 
     <!-- Hibernate-Validator Messages -->
     <mvc:annotation-driven validator="validator" />

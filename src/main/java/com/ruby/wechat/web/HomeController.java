@@ -1,5 +1,8 @@
 package com.ruby.wechat.web;
 
+import com.ruby.wechat.entity.User;
+import com.ruby.wechat.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -18,8 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = {"/","/home","/index"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
+
+        User user = userService.getUser(30);
+        model.addAttribute("user", user);
+
         return "index";
     }
 

@@ -14,6 +14,17 @@
         <param-value>classpath*:/context/spring-*.xml</param-value>
     </context-param>
 
+    <!-- 解决懒加载session关闭问题 -->
+    <filter>
+        <filter-name>SpringOpenSessionInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SpringOpenSessionInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- Spring MVC Enter Point -->
     <servlet>
         <servlet-name>spring-mvc</servlet-name>
