@@ -16,7 +16,7 @@
         <mbp-common.version>1.0-SNAPSHOT</mbp-common.version>
         <junit.version>4.12</junit.version>
         <log4j2.version>2.3</log4j2.version>
-        <spring.version>4.2.4.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <spring.security.version>4.1.2.RELEASE</spring.security.version>
         <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
@@ -160,7 +160,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.18</version>
+            <version>1.0.24</version>
         </dependency>
 
         <!-- mysql jdbc driver -->
@@ -242,6 +242,20 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
+        </dependency>
+
+        <!-- cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <!-- aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.9</version>
         </dependency>
     </dependencies>
 
