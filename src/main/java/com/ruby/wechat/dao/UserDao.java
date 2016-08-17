@@ -1,7 +1,7 @@
-package com.mobaopay.test.feature.hibernate.dao;
+package com.ruby.wechat.dao;
 
-
-import com.mobaopay.test.feature.hibernate.entity.User;
+import com.ruby.common.persistence.hibernate.BaseDao;
+import com.ruby.wechat.entity.User;
 
 /**
  * Created by ruby on 2016/8/17.

@@ -1,5 +1,6 @@
 package com.mobaopay.test.feature.hibernate.entity;
 
+
 import javax.persistence.*;
 
 /**

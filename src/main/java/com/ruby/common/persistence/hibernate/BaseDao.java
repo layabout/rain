@@ -1,7 +1,6 @@
-package com.mobaopay.test.feature.hibernate.dao;
+package com.ruby.common.persistence.hibernate;
 
-
-import com.mobaopay.test.feature.hibernate.entity.Page;
+import com.ruby.common.persistence.hibernate.entity.Page;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
@@ -162,7 +161,7 @@ public interface BaseDao<T, PK extends Serializable> {
      * @param pageNumber
      * @return
      */
-    public List<T> page(DetachedCriteria criteria,Integer pageSize,Integer pageNumber);
+    public List<T> page(DetachedCriteria criteria, Integer pageSize, Integer pageNumber);
 
     /**
      * 根据DetachedCriteria和Page对象获取分页page对象
