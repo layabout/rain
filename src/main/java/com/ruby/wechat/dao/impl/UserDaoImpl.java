@@ -6,7 +6,7 @@ import com.ruby.wechat.entity.User;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by ruby on 2016/8/17.
+ * Created by ruby on 2016/8/18.
  * Email:liyufeng_23@163.com
  */
 @Repository

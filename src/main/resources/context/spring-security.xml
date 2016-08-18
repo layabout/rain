@@ -13,13 +13,9 @@
     </http>
 
     <authentication-manager >
-        <authentication-provider>
-            <user-service>
-                <user name="bill"  password="abc123"  authorities="ROLE_USER" />
-                <user name="ruby"  password="admin888"  authorities="ROLE_ADMIN" />
-            </user-service>
-        </authentication-provider>
+        <authentication-provider user-service-ref="customUserDetailsService" />
     </authentication-manager>
 
+    <beans:bean id="customUserDetailsService" class="com.ruby.wechat.service.impl.UserServiceImpl" />
 
 </beans:beans>

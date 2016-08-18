@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -22,25 +21,19 @@ public class HibernateTest extends BaseSpringTestRunner {
     private static final Logger logger = LoggerFactory.getLogger(HibernateTest.class);
 
     @Autowired
-    private UserDao userDao;
+    private UserDao userTestDao;
 
     @Test
-    @Rollback(false)
     @Transactional
-    public void testHibernate() {
+    public void testHibernate() throws Exception {
         logger.info("hibernate test start ...");
 
         DetachedCriteria query = DetachedCriteria.forClass(User.class);
 
-        List<User> list = userDao.page(query,2,1);
+        List<User> list = userTestDao.page(query,2,1);
         for(User item : list) {
             System.out.println(item.getName());
         }
-//        User user = new User();
-//        user.setName("hibernate test");
-//
-//        userDao.save(user);
 
-        logger.info("test end ...");
     }
 }

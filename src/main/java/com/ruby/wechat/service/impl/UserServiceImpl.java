@@ -5,9 +5,11 @@ import com.ruby.wechat.entity.User;
 import com.ruby.wechat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 /**
- * Created by ruby on 2016/8/17.
+ * Created by ruby on 2016/8/18.
  * Email:liyufeng_23@163.com
  */
 @Service
@@ -17,7 +19,12 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public User getUser(Integer id) {
-        return userDao.get(id);
+    @Transactional(readOnly = true)
+    public User findUserByLoginId(String loginId) {
+        return userDao.get("loginId", loginId);
     }
 }
+
+
+
+

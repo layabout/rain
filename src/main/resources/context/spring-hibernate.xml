@@ -60,12 +60,4 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!-- 配置druid监控spring-->
-    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor" />
-
-    <aop:config proxy-target-class="true">
-        <aop:advisor advice-ref="druid-stat-interceptor"
-                     pointcut="execution(* com.ruby..*.*(..))" />
-    </aop:config>
-
 </beans>

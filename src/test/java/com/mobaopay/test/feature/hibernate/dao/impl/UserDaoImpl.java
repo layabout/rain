@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by ruby on 2016/8/17.
  * Email:liyufeng_23@163.com
  */
-@Repository
+@Repository("userTestDao")
 public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
 }
