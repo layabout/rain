@@ -16,6 +16,6 @@
         <authentication-provider user-service-ref="customUserDetailsService" />
     </authentication-manager>
 
-    <beans:bean id="customUserDetailsService" class="com.ruby.wechat.service.impl.UserServiceImpl" />
+    <beans:bean id="customUserDetailsService" class="com.ruby.wechat.service.impl.CustomUserDetailsService" />
 
 </beans:beans>

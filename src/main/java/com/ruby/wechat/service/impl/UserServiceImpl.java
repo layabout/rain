@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by ruby on 2016/8/18.
  * Email:liyufeng_23@163.com
  */
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
