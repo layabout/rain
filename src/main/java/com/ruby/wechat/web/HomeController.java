@@ -3,6 +3,7 @@ package com.ruby.wechat.web;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,6 +23,14 @@ public class HomeController {
     @RequestMapping(value = {"/","/home","/index"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
         model.addAttribute("user", getPrincipal());
+
+        Object webAuthenticationDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+        if (webAuthenticationDetails instanceof WebAuthenticationDetails) {
+            WebAuthenticationDetails authDetails = (WebAuthenticationDetails)webAuthenticationDetails;
+            String ip = authDetails.getRemoteAddress();
+            model.addAttribute("ip", ip);
+        }
+
         return "index";
     }
 
