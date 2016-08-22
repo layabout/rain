@@ -5,17 +5,39 @@
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
     <http pattern="/druid/**" security="none" />
-    <http>
+    <http entry-point-ref="authenticationEntryPoint">
         <intercept-url pattern="/login" access="permitAll" />
+        <intercept-url pattern="/captcha" access="permitAll" />
         <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/**" access="hasRole('USER') or hasRole('ADMIN')" />
-        <form-login login-page="/login" default-target-url="/" always-use-default-target="true" />
+
+        <custom-filter ref="usernamePasswordFilter" position="FORM_LOGIN_FILTER" />
     </http>
 
-    <authentication-manager >
+    <beans:bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:constructor-arg index="0" value="/login" />
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserDetailsService" />
     </authentication-manager>
 
     <beans:bean id="customUserDetailsService" class="com.ruby.wechat.service.impl.CustomUserDetailsService" />
+
+    <!-- 用户名密码验证码拦截器 -->
+    <beans:bean id="usernamePasswordFilter" class="com.ruby.wechat.service.impl.UsernamePasswordCaptchaAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+        <beans:property name="authenticationSuccessHandler">
+            <beans:bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+                <beans:property name="defaultTargetUrl" value="/" />
+                <beans:property name="alwaysUseDefaultTargetUrl" value="true" />
+            </beans:bean>
+        </beans:property>
+        <beans:property name="authenticationFailureHandler">
+            <beans:bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+                <beans:property name="defaultFailureUrl" value="/login?error=true" />
+            </beans:bean>
+        </beans:property>
+    </beans:bean>
 
 </beans:beans>

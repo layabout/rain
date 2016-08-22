@@ -11,7 +11,8 @@
     <input type="password" name="password" placeholder="password"/>
     <input type="hidden" name="_csrf" value="csrfValue" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     <br/>
-    <span th:if="${param.error != null}" style="color: red">Invalid username and password.</span>
+    <input type="text" name="captcha" placeholder="验证码" /><img src="/captcha" />
+    <span th:if="${param.error != null}" style="color: red">[[${session[SPRING_SECURITY_LAST_EXCEPTION].message}]]</span>
     <span th:if="${param.logout != null}" style="color: green">You have been logged out successfully.</span>
     <br/>
     <input type="submit" value="login"/>
