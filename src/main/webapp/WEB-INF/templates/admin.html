@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <title>admin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>this is the admin page.</h1>
+<h2>spring security dialect test</h2>
+<div th:text="${#authentication.name}">
+    The value of the "name" property of the authentication object should appear here.
+</div>
+<div sec:authentication="name">
+    The value of the "name" property of the authentication object should appear here.
+</div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    This will only be displayed if authenticated user has role ROLE_ADMIN.
+</div>
+<hr/>
+<p>hello, [[${user}]], IP Address: [[${ip}]] </p>
+<p>this is the index page.</p>
 <p>
     <a href="/logout">退出登录</a>
 </p>
