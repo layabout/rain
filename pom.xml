@@ -143,6 +143,13 @@
             </exclusions>
         </dependency>
 
+        <!-- thymeleaf extras spring security4 -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>3.0.0.RELEASE</version>
+        </dependency>
+
         <!-- kaptcha -->
         <dependency>
             <groupId>com.google.code.kaptcha</groupId>
